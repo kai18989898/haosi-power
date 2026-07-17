@@ -48,13 +48,16 @@ export default function AdminLoginPage() {
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  placeholder="admin"
-                  className="pl-9"
-                  required
+                 &lt;Label htmlFor="username"&gt;用户名 / 邮箱&lt;/Label&gt;
+&lt;Input
+  id="username"
+  type="text"
+  value={username}
+  onChange={e =&gt; setUsername(e.target.value)}
+  placeholder="admin 或 admin@miaoda.com"
+  className="pl-9"
+  required
+/&gt;
                 />
               </div>
             </div>

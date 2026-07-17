@@ -79,20 +79,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => subscription.unsubscribe();
   }, []);
 
-  const signInWithUsername = async (username: string, password: string) => {
-    try {
-      const email = `${username}@miaoda.com`;
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+  const signInWithUsername = async (username: string, password: string) =&gt; {
+  try {
+    // 同时支持用户名和完整邮箱登录
+    const email = username.includes('@') ? username : `${username}@miaoda.com`;
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-      if (error) throw error;
-      return { error: null };
-    } catch (error) {
-      return { error: error as Error };
-    }
-  };
+    if (error) throw error;
+    return { error: null };
+  } catch (error) {
+    return { error: error as Error };
+  }
+};
 
   const signUpWithUsername = async (username: string, password: string) => {
     try {
