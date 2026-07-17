@@ -73,14 +73,15 @@ export default function AdminSettingsPage() {
         </CardContent>
       </Card>
 
-      <div className="border rounded-lg p-4 bg-muted/50 space-y-2">
-        <p className="text-sm font-medium">Admin Credentials</p>
-        <div className="text-xs text-muted-foreground space-y-1">
-          <p>Email: <span className="font-mono text-foreground">admin@miaoda.com</span></p>
-          <p>Password: <span className="font-mono text-foreground">Haosi@Power2026!Adm</span></p>
-        </div>
-        <p className="text-xs text-muted-foreground">Keep these credentials secure.</p>
-      </div>
+      <div>
+  <p>管理员账号</p>
+  <div>
+    <p>用户名: <span>admin</span></p>
+    <p>邮箱: <span>admin@miaoda.com</span></p>
+    <p>密码: <span>Haosi@Power2026!Adm</span></p>
+  </div>
+  <p>请妥善保管管理员账号信息。</p>
+</div>
 
       <div className="flex justify-end">
         <Button onClick={handleSave} disabled={saving}>

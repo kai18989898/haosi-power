@@ -52,7 +52,7 @@ export default function AdminLoginPage() {
                   type="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  placeholder="admin@miaoda.com"
+                  placeholder="admin"
                   className="pl-9"
                   required
                 />
@@ -67,7 +67,7 @@ export default function AdminLoginPage() {
                   type={showPwd ? 'text' : 'password'}
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  placeholder="••••••••"
+                  placeholder="admin"
                   className="pl-9 pr-10"
                   required
                 />
