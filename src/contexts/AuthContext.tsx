@@ -79,7 +79,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => subscription.unsubscribe();
   }, []);
 
-  const signInWithUsername = async (username: string, password: string) =&gt; {
+const signInWithUsername = async (username: string, password: string) =&gt; {
   try {
     // 同时支持用户名和完整邮箱登录
     const email = username.includes('@') ? username : `${username}@miaoda.com`;
