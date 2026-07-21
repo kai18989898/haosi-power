@@ -18,7 +18,7 @@ export default function AdminLoginPage() {
   const [showPwd, setShowPwd] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) =&gt; {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!username || !password) { toast.error('请输入用户名和密码'); return; }
     setLoading(true);
@@ -32,56 +32,56 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div>
-      &lt;Card className="w-full max-w-[calc(100%-2rem)] md:max-w-md"&gt;
-        &lt;CardHeader className="text-center space-y-3 pb-4"&gt;
-          <div>H</div>
+    <div className="min-h-screen flex items-center justify-center bg-muted/50 p-4">
+      <Card className="w-full max-w-[calc(100%-2rem)] md:max-w-md">
+        <CardHeader className="text-center space-y-3 pb-4">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-xl">H</div>
           <div>
-            <h1>Haosi Power</h1>
-            <p>{t('admin.title')}</p>
+            <h1 className="text-xl font-semibold">Haosi Power</h1>
+            <p className="text-sm text-muted-foreground mt-1">{t('admin.title')}</p>
           </div>
-        &lt;/CardHeader&gt;
-        &lt;CardContent&gt;
-          &lt;form onSubmit={handleSubmit} className="space-y-4"&gt;
-            <div>
-              &lt;Label htmlFor="username"&gt;用户名 / 邮箱&lt;/Label&gt;
-              <div>
-                &lt;Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" /&gt;
-                &lt;Input
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-1.5">
+              <Label htmlFor="username">用户名 / 邮箱</Label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Input
                   id="username"
                   type="text"
                   value={username}
-                  onChange={e =&gt; setUsername(e.target.value)}
+                  onChange={e => setUsername(e.target.value)}
                   placeholder="admin 或 admin@miaoda.com"
                   className="pl-9"
                   required
-                /&gt;
+                />
               </div>
             </div>
-            <div>
-              &lt;Label htmlFor="password"&gt;Password&lt;/Label&gt;
-              <div>
-                &lt;Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" /&gt;
-                &lt;Input
+            <div className="space-y-1.5">
+              <Label htmlFor="password">Password</Label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Input
                   id="password"
                   type={showPwd ? 'text' : 'password'}
                   value={password}
-                  onChange={e =&gt; setPassword(e.target.value)}
+                  onChange={e => setPassword(e.target.value)}
                   placeholder="••••••••"
                   className="pl-9 pr-10"
                   required
-                /&gt;
-                &lt;button type="button" onClick={() =&gt; setShowPwd(v =&gt; !v)} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"&gt;
-                  {showPwd ? &lt;EyeOff className="h-4 w-4" /&gt; : &lt;Eye className="h-4 w-4" /&gt;}
-                &lt;/button&gt;
+                />
+                <button type="button" onClick={() => setShowPwd(v => !v)} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
+                  {showPwd ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
               </div>
             </div>
-            &lt;Button type="submit" className="w-full" disabled={loading}&gt;
+            <Button type="submit" className="w-full" disabled={loading}>
               {loading ? 'Signing in...' : t('nav.login')}
-            &lt;/Button&gt;
-          &lt;/form&gt;
-        &lt;/CardContent&gt;
-      &lt;/Card&gt;
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
     </div>
   );
 }
